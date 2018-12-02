@@ -1,0 +1,106 @@
+<Mundo>
+    <const Name="TecnicaSD">
+        <val>25</val>
+        <desc>Desviación típica para la función de distribución de probabilidad de técnica del matador</desc>
+    </const>
+    <const Name="ArteSD">
+        <val>25</val>
+        <desc>Desviación típica para la función de distribución de probabilidad de arte del matador</desc>
+    </const>
+    <!--Define distintas distribuciones de probabilidad para las distintas dificultades de los pases
+    Los valores se dan con pares (punto,valor) que luego se utilizaran para extrapolar la funcion de probabilidad
+    Para la ultima de las distribuciones no se dan valores, ya que se calculara con el restante hasta 100 de la suma de
+    las demas distribuciones en ese punto
+    score es la máxima puntuación que se puede conseguir con un pase de la categoría
+    -->
+    <distrPase Name="Alta">
+        <val>1,98</val>
+        <val>50,75</val>
+        <val>100,34</val>
+        <score>100</score>
+    </distrPase>
+    <distrPase Name="Baja">
+        <val>1,1</val>
+        <val>50,5</val>
+        <val>100,33</val>
+        <score>50</score>
+    </distrPase>
+    <distrPase Name="Media">
+        <score>75</score>
+    </distrPase>
+
+    <paseCapote Name="Verónica">
+            <desc>Se realiza sujetando el capote con ambas manos, el torero adelanta el capote para citar al toro y al paso de éste carga la suerte hacia la derecha o izquierda, adelantando una pierna para preparar la siguiente Verónica. Es uno de los quites clásicos del toreo con capote y uno de los que más se suele realizar para recibir al toro. Muchas veces se remata una serie de Verónicas con una Media Verónica.
+            </desc>
+        <dificultad>Baja</dificultad>
+    </paseCapote>
+    <paseCapote Name="Chicuelina">
+        <desc>Se realiza sosteniendo el capote con ambas manos a la altura del pecho para citar al toro, y a la embestida se recoge por debajo, envolviéndose el torero en él.
+        </desc>
+        <dificultad>Media</dificultad>
+    </paseCapote>
+
+    <paseCapote Name="Gaonera">
+        <desc>Se sujeta el capote por la espalda con ambas manos, dejando la mayor parte del vuelo por un mismo lado, que generalmente es el derecho. Al paso del astado, el torero da medio giro hacía el costado opuesto de la embestida, levantando el capote y deslizándolo por el lomo del toro.
+        </desc>
+        <dificultad>Media</dificultad>
+    </paseCapote>
+
+    <paseCapote Name="Navarra">
+        <desc>Es una suerte de capas donde el torero gira en dirección contraria a la de la embestida del toro.</desc>
+        <dificultad>Baja</dificultad>
+    </paseCapote>
+
+    <paseCapote Name="Tafallera">
+        <desc>El torero sostiene el capote con las dos manos mientras deja que el toro pase por debajo de éste, deslizando la tela por el lomo del astado.</desc>
+        <dificultad>Alta</dificultad>
+    </paseCapote>
+
+    <paseCapote Name="Revolera">
+        <desc>El torero suelta el capote con una mano, girándolo a su alrededor, y llevando al toro largo.</desc>
+    <dificultad>Media</dificultad>
+    </paseCapote>
+
+    <paseCapote Name="Delantal">
+        <desc>Es un quite arriesgado, donde el torero sostiene el capote con ambas manos acercándolo a su cintura al paso del toro.</desc>
+        <dificultad>Alta</dificultad>
+    </paseCapote>
+
+    <paseCapote Name="Media verónica">
+        <desc>Se inicia igual que la Verónica, pero el torero recoge un poco el capote al final para que el toro gire en vez de salir frontal.
+        </desc>
+        <dificultad>Baja</dificultad>
+    </paseCapote>
+
+    <paseCapote Name="Zapopina">
+        <desc>Quite vistoso y arriesgado, el creador de este espectaular quite es el mexicano, Miguel Ángel Martínez Hernández (El Zapopan) de ahí el nombre de la Zapopina. Fue popularizado en España por Julián López El Juli, por lo que algunos le dan también el nombre de lopecina.
+    </desc>
+        <dificultad>Alta</dificultad>
+    </paseCapote>
+
+    <paseCapote Name="Serpentina">
+        <desc>Quite muy vistoso que sirve para rematar series. Se da girando el capote de manera vertical con una sola mano por encima del toro, en dirección inversa a la del astado.</desc>
+        <dificultad>Media</dificultad>
+    </paseCapote>
+
+    <paseCapote Name="Caleserina">
+        <desc>Lance que creó el torero mexicano Alfonso Ramirez (El Calesero), y que ejecutaba de frente; iniciándolo como si fuese una verónica y continuándolo con un farol cuando el toro entraba en la jurisdicción del diestro</desc>
+        <dificultad>Media</dificultad>
+    </paseCapote>
+
+    <paseCapote Name="Farol">
+        <desc>Esta suerte se le atribuye a Don Manuel Domínguez, que en Madrid el 13 de mayo de 1855 toreó triunfando con este nuevo lance. Se inicia como la de la verónica, pero en el momento de sacar el capote de la cara del toro se hace un movimiento como si se fuera a colocar sobre los hombros, dando con él una vuelta en derredor de la cabeza del diestro, y volviendo a su primitiva posición si ha de repetirla, o dejando sobre los hombros si quiere terminar la suerte galleando</desc>
+        <dificultad>Media</dificultad>
+    </paseCapote>
+
+    <paseCapote Name="Porta Gayola">
+        <desc>El torero de rodillas espera al toro frente del toril con la capa extendida en abanico sobre el suelo. Cuando se produce el encuentro, el diestro levanta la capa y la extiende en el aire, la pasa de izquierda a derecha por sobre la cabeza, desviando hacia fuera la trayectoria del toro.
+    </desc>
+        <dificultad>Alta</dificultad>
+    </paseCapote>
+
+    <paseCapote Name="Larga cambiada">
+        <desc>Torero de rodillas espera al toro y pasa el capote por encima de la cabeza</desc>
+        <dificultad>Alta</dificultad>
+    </paseCapote>
+</Mundo>
