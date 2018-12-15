@@ -1,5 +1,6 @@
 from lxml import etree
 import tools
+from Limbo import *
 import Matador
 import Toro
 from Cronista import *
@@ -7,10 +8,8 @@ from Cronista import *
 
 
 
-class Faena:
+class Faena(Limbo):
 
-    pases={}
-    incidentes={}
     a_freqinc=0 # ax+b es la funcion para la frecuencia de incidentes.
     b_freqinc=0 # Técnica maxima da minima frecuencia
 
@@ -34,9 +33,10 @@ class Faena:
             # todo: Tengo que arreglar lo que se le pasa al cronista
             # quizá crear un contexto con pases y lo demás
             #*************************************************
-            Cronista.pase(self.matador,self.pases['capote'][pase])
+            # fixme no está claro que es el pase que se pasa
+            Cronista.pase(self.matador,'capote',pase,tecnica,arte)
             self.incidente(tecnica)
-            max_score=self.pases['capote'][pase]['maxscore']
+            max_score=Limbo.Pases['capote'][pase]['maxscore']
             self.scoretecnico+=(max_score*tecnica)
             self.scoreartistico+=arte
 
@@ -54,7 +54,7 @@ class Faena:
             # incidente
             # DETERMINAR EL INCIDENTE
             # esta busqueda tan bizarra podria dar varios
-            for x,i in enumerate(self.incidentes.values()):
+            for x,i in enumerate(Limbo.Incidentes.values()):
                 if dice>=i['min'] and dice<=i['max']:
                     return (True,x)
             #a=[x for x,i in enumerate(self.incidentes.values()) if dice>=i['min'] and dice<=i['max']]
@@ -63,11 +63,11 @@ class Faena:
 
 
 
-class Mundo:
+class Mundo(Limbo):
     def __init__(self):
         Cronista.basicConfig('Historia.log')
 
-        self.Pases={} # Diccionario, la clave es el tipo (capote,muleta), cada uno tiene un diccionario con
+        #self.Pases={} # Diccionario, la clave es el tipo (capote,muleta), cada uno tiene un diccionario con
         # clave nombre del pase. descripcion y dificultad
         self.NomPases={} # Diccionario, la clave es la dificultad del pase, el valor una lista de nombres
         self.PasesDistr={} # Diccionario, la clave es la dificultad, da puntos para extrapolar las funciones que
@@ -77,7 +77,7 @@ class Mundo:
         self.NomPases['muleta']={}
 
         self.loadMundo()
-        Faena.pases=self.Pases
+        #Faena.pases=self.Pases
         Matador.Matador.pasesdb=self.NomPases
         Matador.Matador.pasesdistr=self.PasesDistr
 
@@ -139,14 +139,14 @@ class Mundo:
             self.PasesDistr[i.attrib['Name']]={"indice":x,"valor":y,"score":score}
 
         XMLPases = XMLconstants.findall("//paseCapote")
-        self.Pases['capote']={}
+        Limbo.Pases['capote']={}
         for i in XMLPases:
             na=i.attrib['Name']
             de=i.find('desc').text
             di=i.find('dificultad').text
             ar=i.find('articulo').text
             sc=self.PasesDistr[di]['score']
-            self.Pases['capote'][na]={"desc":de,"dificultad":di,"maxscore":sc,"articulo":ar}
+            Limbo.Pases['capote'][na]={"desc":de,"dificultad":di,"maxscore":sc,"articulo":ar}
             # Eliminar NomPases, utilizar solo Pases
             try:
                 self.NomPases['capote'][di].append(na)
@@ -154,13 +154,13 @@ class Mundo:
                 self.NomPases['capote'][di]=[]
                 self.NomPases['capote'][di].append(na)
         XMLPases = XMLconstants.findall("//paseMuleta")
-        self.Pases['muleta']={}
+        Limbo.Pases['muleta']={}
         for i in XMLPases:
             na=i.attrib['Name']
             de=i.find('desc').text
             di=i.find('dificultad').text
             sc=self.PasesDistr[di]['score']
-            self.Pases['muleta'][na]={"desc":de,"dificultad":di,"maxscore":sc}
+            Limbo.Pases['muleta'][na]={"desc":de,"dificultad":di,"maxscore":sc}
             try:
                 self.NomPases['muleta'][di].append(na)
             except KeyError:
@@ -180,7 +180,7 @@ class Mundo:
             de=i.find('desc').text
             v=i.find('minmax').text
             elem=list(map(int,v.split(',')))
-            Faena.incidentes[na]={'desc':de,'min':elem[0],'max':elem[1]}
+            Limbo.Incidentes[na]={'desc':de,'min':elem[0],'max':elem[1]}
 
 
 

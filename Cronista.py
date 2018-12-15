@@ -1,4 +1,6 @@
-class Cronista:
+from Limbo import *
+
+class Cronista(Limbo):
     fh=""
 
     @classmethod
@@ -10,8 +12,9 @@ class Cronista:
         Cronista.fh.write(message)
 
     @classmethod
-    def pase(cls,diestro,pase):
-        a="El diestro ejecuta %s %s" % (pase['articulo'],pase.key())
+    def pase(cls,diestro,manta,pase,tecnica,arte):
+        p=Limbo.Pases[manta][pase]
+        a="El diestro ejecuta %s %s" % (p['articulo'],pase)
         Cronista.fh.write(a)
 
 
