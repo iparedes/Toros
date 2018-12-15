@@ -47,6 +47,12 @@ def main():
     # # ax[2].hist(X3.rvs(10000), normed=True)
     # plt.show()
 
+    # import matplotlib.pyplot as plt
+    # D=tools.get_truncated_normal(0.5,0.25,0,1)
+    # v=D.rvs(10000)
+    # plt.hist(v,bins=100)
+    # plt.show()
+
 
     W=Mundo.Mundo()
 

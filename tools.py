@@ -4,17 +4,23 @@ from scipy.stats import truncnorm
 Constants={}
 
 
-def randNormal(a,b):
+def randIntNormal(a, b):
     if b<a:
         a,b=b,a
     mu=(b-a)/2
     t=random.normalvariate(mu,mu/6)
     return int(t+a)
 
-def rand(a,b):
+def randInt(a, b):
     if b<a:
         a,b=b,a
     t=random.randint(a,b)
+    return t
+
+def rand(a,b):
+    if b<a:
+        a,b=b,a
+    t=random.uniform(a,b)
     return t
 
 def get_truncated_normal(mean=0, sd=1, low=0, upp=10):

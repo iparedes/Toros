@@ -7,19 +7,32 @@
         <val>25</val>
         <desc>Desviación típica para la función de distribución de probabilidad de arte del matador</desc>
     </const>
+    <const Name="IncidenteSD">
+        <val>25</val>
+        <desc>Desviación típica para la función de distribución de incidentes</desc>
+    </const>
+    <const Name="IncidenteFreqMax">
+        <val>50</val>
+        <desc>Máxima frecuencia de incidente (cuando la técnica es la peor)</desc>
+    </const>
+    <const Name="IncidenteFreqMin">
+        <val>0.01</val>
+        <desc>Máxima frecuencia de incidente (cuando la técnica es la peor)</desc>
+    </const>
+
     <!--Define distintas distribuciones de probabilidad para las distintas dificultades de los pases
     Los valores se dan con pares (punto,valor) que luego se utilizaran para extrapolar la funcion de probabilidad
     Para la ultima de las distribuciones no se dan valores, ya que se calculara con el restante hasta 100 de la suma de
     las demas distribuciones en ese punto
     score es la máxima puntuación que se puede conseguir con un pase de la categoría
     -->
-    <distrPase Name="Alta">
+    <distrPase Name="Baja">
         <val>1,98</val>
         <val>50,75</val>
         <val>100,34</val>
         <score>100</score>
     </distrPase>
-    <distrPase Name="Baja">
+    <distrPase Name="Alta">
         <val>1,1</val>
         <val>50,5</val>
         <val>100,33</val>
@@ -33,74 +46,170 @@
             <desc>Se realiza sujetando el capote con ambas manos, el torero adelanta el capote para citar al toro y al paso de éste carga la suerte hacia la derecha o izquierda, adelantando una pierna para preparar la siguiente Verónica. Es uno de los quites clásicos del toreo con capote y uno de los que más se suele realizar para recibir al toro. Muchas veces se remata una serie de Verónicas con una Media Verónica.
             </desc>
         <dificultad>Baja</dificultad>
+        <articulo>una</articulo>
     </paseCapote>
     <paseCapote Name="Chicuelina">
         <desc>Se realiza sosteniendo el capote con ambas manos a la altura del pecho para citar al toro, y a la embestida se recoge por debajo, envolviéndose el torero en él.
         </desc>
         <dificultad>Media</dificultad>
+                <articulo>una</articulo>
     </paseCapote>
 
     <paseCapote Name="Gaonera">
         <desc>Se sujeta el capote por la espalda con ambas manos, dejando la mayor parte del vuelo por un mismo lado, que generalmente es el derecho. Al paso del astado, el torero da medio giro hacía el costado opuesto de la embestida, levantando el capote y deslizándolo por el lomo del toro.
         </desc>
         <dificultad>Media</dificultad>
+        <articulo>una</articulo>
     </paseCapote>
 
     <paseCapote Name="Navarra">
         <desc>Es una suerte de capas donde el torero gira en dirección contraria a la de la embestida del toro.</desc>
         <dificultad>Baja</dificultad>
+        <articulo>una</articulo>
     </paseCapote>
 
     <paseCapote Name="Tafallera">
         <desc>El torero sostiene el capote con las dos manos mientras deja que el toro pase por debajo de éste, deslizando la tela por el lomo del astado.</desc>
         <dificultad>Alta</dificultad>
+        <articulo>una</articulo>
     </paseCapote>
 
     <paseCapote Name="Revolera">
         <desc>El torero suelta el capote con una mano, girándolo a su alrededor, y llevando al toro largo.</desc>
-    <dificultad>Media</dificultad>
+        <dificultad>Media</dificultad>
+        <articulo>una</articulo>
     </paseCapote>
 
     <paseCapote Name="Delantal">
         <desc>Es un quite arriesgado, donde el torero sostiene el capote con ambas manos acercándolo a su cintura al paso del toro.</desc>
         <dificultad>Alta</dificultad>
+        <articulo>un</articulo>
     </paseCapote>
 
     <paseCapote Name="Media verónica">
         <desc>Se inicia igual que la Verónica, pero el torero recoge un poco el capote al final para que el toro gire en vez de salir frontal.
         </desc>
         <dificultad>Baja</dificultad>
+        <articulo>una</articulo>
     </paseCapote>
 
     <paseCapote Name="Zapopina">
         <desc>Quite vistoso y arriesgado, el creador de este espectaular quite es el mexicano, Miguel Ángel Martínez Hernández (El Zapopan) de ahí el nombre de la Zapopina. Fue popularizado en España por Julián López El Juli, por lo que algunos le dan también el nombre de lopecina.
     </desc>
         <dificultad>Alta</dificultad>
+        <articulo>una</articulo>
     </paseCapote>
 
     <paseCapote Name="Serpentina">
         <desc>Quite muy vistoso que sirve para rematar series. Se da girando el capote de manera vertical con una sola mano por encima del toro, en dirección inversa a la del astado.</desc>
         <dificultad>Media</dificultad>
+        <articulo>una</articulo>
     </paseCapote>
 
     <paseCapote Name="Caleserina">
         <desc>Lance que creó el torero mexicano Alfonso Ramirez (El Calesero), y que ejecutaba de frente; iniciándolo como si fuese una verónica y continuándolo con un farol cuando el toro entraba en la jurisdicción del diestro</desc>
         <dificultad>Media</dificultad>
+        <articulo>una</articulo>
     </paseCapote>
 
     <paseCapote Name="Farol">
         <desc>Esta suerte se le atribuye a Don Manuel Domínguez, que en Madrid el 13 de mayo de 1855 toreó triunfando con este nuevo lance. Se inicia como la de la verónica, pero en el momento de sacar el capote de la cara del toro se hace un movimiento como si se fuera a colocar sobre los hombros, dando con él una vuelta en derredor de la cabeza del diestro, y volviendo a su primitiva posición si ha de repetirla, o dejando sobre los hombros si quiere terminar la suerte galleando</desc>
         <dificultad>Media</dificultad>
+        <articulo>un</articulo>
     </paseCapote>
 
     <paseCapote Name="Porta Gayola">
         <desc>El torero de rodillas espera al toro frente del toril con la capa extendida en abanico sobre el suelo. Cuando se produce el encuentro, el diestro levanta la capa y la extiende en el aire, la pasa de izquierda a derecha por sobre la cabeza, desviando hacia fuera la trayectoria del toro.
     </desc>
         <dificultad>Alta</dificultad>
+        <articulo>a</articulo>
     </paseCapote>
 
     <paseCapote Name="Larga cambiada">
         <desc>Torero de rodillas espera al toro y pasa el capote por encima de la cabeza</desc>
         <dificultad>Alta</dificultad>
+        <articulo>una</articulo>
     </paseCapote>
+
+    <paseMuleta Name="Natural">
+        <desc>Lidia del toro con la mano izquierda. Es el pase clásico por excelencia. Cuando el toro embiste, el matador gira y estira el brazo hacia atrás, describiendo con los vuelos de la muleta un cuarto de círculo, moviendo los pies de manera precisa para que una vez terminado el pase se pueda repetir inmediatamente.</desc>
+        <dificultad>Baja</dificultad>
+        <articulo>un</articulo>
+    </paseMuleta>
+    <paseMuleta Name="Derechazo">
+        <desc>El mismo pase natural, pero con la mano derecha.</desc>
+        <dificultad>Baja</dificultad>
+        <articulo>un</articulo>
+    </paseMuleta>
+    <paseMuleta Name="Pase de pecho">
+        <desc>Este pase sirve de terminación a una serie de muletazos. Se realiza extendiendo la mano hacia adelante y con una terminación alta, a la altura del pecho, haciendo que el toro levante la cabeza.</desc>
+        <dificultad>Baja</dificultad>
+        <articulo>un</articulo>
+    </paseMuleta>
+    <paseMuleta Name="Trincherazo">
+        <desc>Pase que se realiza con la mano derecha, teniendo la muleta baja para recortar el paso del toro.</desc>
+        <dificultad>Media</dificultad>
+        <articulo>un</articulo>
+    </paseMuleta>
+    <paseMuleta Name="Trincherilla">
+        <desc>El mismo movimiento del trincherazo, pero con la mano izquierda.</desc>
+        <dificultad>Media</dificultad>
+        <articulo>una</articulo>
+    </paseMuleta>
+    <paseMuleta Name="Pase cambiado por la espalda">
+        <desc>Se cita al toro y en el último momento se sitúa la muleta en la espalda, dejando que el toro pase por detrás del matador.</desc>
+        <dificultad>Alta</dificultad>
+        <articulo>un</articulo>
+    </paseMuleta>
+    <paseMuleta Name="Estatuario">
+        <desc>Se toma la muleta con ambas manos, dejando pasar al toro mientras el matador permanece de pies juntos e inmóvil.</desc>
+        <dificultad>Alta</dificultad>
+        <articulo>un</articulo>
+    </paseMuleta>
+    <paseMuleta Name="Molinete">
+        <desc>Pegar la muleta al cuerpo cuando pasa el toro.</desc>
+        <dificultad>Media</dificultad>
+        <articulo>un</articulo>
+    </paseMuleta>
+    <paseMuleta Name="Molinete de rodillas">
+        <desc>El mismo movimiento del molinete, pero con las rodillas puestas en la arena.</desc>
+        <dificultad>Alta</dificultad>
+        <articulo>un</articulo>
+    </paseMuleta>
+    <paseMuleta Name="Manoletina">
+        <desc>Se toma la muleta con las dos manos, pasando una por la espalda. El toro pasa muy cerca del matador, quien se mantiene de pies juntos. Recibe su nombre de Manuel Rodríguez Manolete.</desc>
+        <dificultad>Alta</dificultad>
+        <articulo>una</articulo>
+    </paseMuleta>
+    <paseMuleta Name="Bernardina">
+        <desc>Se realiza de la misma manera que la manoletina, pero tomando la muleta al revés.</desc>
+        <dificultad>Alta</dificultad>
+        <articulo>una</articulo>
+    </paseMuleta>
+    <paseMuleta Name="Arrucina">
+        <desc>Se toma la muleta montada con la mano derecha, para pasarla por detrás de la espalda y citar al toro por la siniestra con el pico de la misma. Cuando el toro embiste, el torero gira para vaciar la embestida y tornar su brazo derecho a la posición natural.</desc>
+        <dificultad>Alta</dificultad>
+        <articulo>una</articulo>
+    </paseMuleta>
+    <incidente Name="Cogida Brutal">
+        <desc>Muerte casi segura</desc>
+        <minmax>0,9</minmax>
+    </incidente>
+    <incidente Name="Cogida Grave">
+        <desc>Potencialmente mortal</desc>
+        <minmax>10,24</minmax>
+    </incidente>
+    <incidente Name="Cogida">
+        <desc>Lesión, herida leve</desc>
+        <minmax>25,49</minmax>
+    </incidente>
+    <incidente Name="Revolcón">
+        <desc>Sin consecuencias</desc>
+        <minmax>50,74</minmax>
+    </incidente>
+    <incidente Name="Susto">
+        <desc>Herido en el orgullo</desc>
+        <minmax>75,100</minmax>
+    </incidente>
+
 </Mundo>
