@@ -194,22 +194,27 @@
     <incidente Name="Cogida Brutal">
         <desc>Muerte casi segura</desc>
         <minmax>0,9</minmax>
+        <articulo>una</articulo>
     </incidente>
     <incidente Name="Cogida Grave">
         <desc>Potencialmente mortal</desc>
         <minmax>10,24</minmax>
+        <articulo>una</articulo>
     </incidente>
     <incidente Name="Cogida">
         <desc>Lesión, herida leve</desc>
         <minmax>25,49</minmax>
+        <articulo>una</articulo>
     </incidente>
     <incidente Name="Revolcón">
         <desc>Sin consecuencias</desc>
         <minmax>50,74</minmax>
+        <articulo>un</articulo>
     </incidente>
     <incidente Name="Susto">
         <desc>Herido en el orgullo</desc>
         <minmax>75,100</minmax>
+        <articulo>un</articulo>
     </incidente>
 
 </Mundo>

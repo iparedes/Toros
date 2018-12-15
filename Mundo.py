@@ -29,13 +29,14 @@ class Faena(Limbo):
         for i in range(0,100):
             self.matador.cita()
             (pase,tecnica,arte)=self.matador.pase('capote')
-            #*************************************************
-            # todo: Tengo que arreglar lo que se le pasa al cronista
-            # quizá crear un contexto con pases y lo demás
-            #*************************************************
-            # fixme no está claro que es el pase que se pasa
             Cronista.pase(self.matador,'capote',pase,tecnica,arte)
-            self.incidente(tecnica)
+            try:
+                (oops,v)=self.incidente(tecnica)
+            except Exception as e:
+                pass
+            if oops:
+                # todo: procesa incidente
+                Cronista.incidente(v)
             max_score=Limbo.Pases['capote'][pase]['maxscore']
             self.scoretecnico+=(max_score*tecnica)
             self.scoreartistico+=arte
@@ -53,10 +54,10 @@ class Faena(Limbo):
         if dice<threshold:
             # incidente
             # DETERMINAR EL INCIDENTE
-            # esta busqueda tan bizarra podria dar varios
+            # esta busqueda tan bizarra podria dar varios hits
             for x,i in enumerate(Limbo.Incidentes.values()):
                 if dice>=i['min'] and dice<=i['max']:
-                    return (True,x)
+                    return (True,list(Limbo.Incidentes.keys())[x])
             #a=[x for x,i in enumerate(self.incidentes.values()) if dice>=i['min'] and dice<=i['max']]
         else:
             return (False,-1)
@@ -179,8 +180,9 @@ class Mundo(Limbo):
             na=i.attrib['Name']
             de=i.find('desc').text
             v=i.find('minmax').text
+            ar=i.find('articulo').text
             elem=list(map(int,v.split(',')))
-            Limbo.Incidentes[na]={'desc':de,'min':elem[0],'max':elem[1]}
+            Limbo.Incidentes[na]={'desc':de,'min':elem[0],'max':elem[1],'articulo':ar}
 
 
 
